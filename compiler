@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Find all .cpp, .h and .hpp files in the src/ directory and its sub-directories
+cpp_files=$(find src/ -name '*.cpp' -o -name '*.h' -o -name '*.hpp')
+
+if [ -z "$cpp_files" ]; then
+    echo "No .cpp, .h or .hpp files found in the src/ directory or its sub-directories."
+    exit 1
+fi
+
+# List all .cpp, .h and .hpp files being compiled
+echo "Compiling the following files:"
+for file in $cpp_files; do
+    echo "  $file"
+done
+
+# Compile all .cpp, .h and .hpp files and link with curl library
+{ g++ -o test-program $cpp_files -I./src -I./src/nlohmann -lcurl 2>&1; echo "Compilation complete."; }
