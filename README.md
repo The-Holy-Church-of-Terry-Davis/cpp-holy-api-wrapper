@@ -21,7 +21,6 @@ $ git clone https://github.com/the-holy-church-of-terry-davis/cpp-holy-api-wrapp
 
 2. Include the `holyapi/` directory in your project.
 ```cpp
-#include <iostream>
 #include "holyapi/holyapi.h"
 ```
 
